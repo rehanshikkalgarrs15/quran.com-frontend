@@ -3,10 +3,8 @@ import * as customPropTypes from 'customPropTypes';
 import Helmet from 'react-helmet';
 import IndexHeader from 'components/IndexHeader';
 import cookie from 'react-cookie';
-import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 import debug from 'helpers/debug';
-import { isAllLoaded, loadAll } from 'redux/actions/chapters.js';
 import LastVisit from 'components/Home/LastVisit';
 import SurahsList from 'components/Home/SurahsList';
 import QuickSurahs from 'components/Home/QuickSurahs';
@@ -60,18 +58,4 @@ Home.propTypes = {
   chapters: customPropTypes.chapters.isRequired
 };
 
-const AsyncHome = asyncConnect([
-  {
-    promise({ store: { getState, dispatch } }) {
-      if (!isAllLoaded(getState())) {
-        return dispatch(loadAll());
-      }
-
-      return true;
-    }
-  }
-])(Home);
-
-export default connect(state => ({ chapters: state.chapters.entities }))(
-  AsyncHome
-);
+export default connect(state => ({ chapters: state.chapters.entities }))(Home);

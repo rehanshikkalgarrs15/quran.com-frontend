@@ -24,7 +24,7 @@ const style = require('./style.scss');
 const RepeatDropdown = Loadable({
   loader: () =>
     import(/* webpackChunkName: "repeatdropdown" */ './RepeatDropdown'),
-  LoadingComponent: ComponentLoader
+  loading: ComponentLoader
 });
 
 export class Audioplayer extends Component {

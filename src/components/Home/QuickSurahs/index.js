@@ -1,6 +1,6 @@
 import React from 'react';
 import debug from 'helpers/debug';
-import Link from 'react-router/lib/Link';
+import { Link } from 'react-router-dom';
 
 import LocaleFormattedMessage from 'components/LocaleFormattedMessage';
 
