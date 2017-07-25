@@ -13,17 +13,19 @@ import auth from './auth';
 import bookmarks from './bookmarks';
 import media from './media';
 
-export default combineReducers({
-  routing: routerReducer,
-  auth,
-  bookmarks,
-  media,
-  chapters,
-  verses,
-  audioplayer,
-  fontFaces,
-  lines,
-  searchResults,
-  suggestResults,
-  options
-});
+export default (others = {}) =>
+  combineReducers({
+    routing: routerReducer,
+    auth,
+    bookmarks,
+    media,
+    chapters,
+    verses,
+    audioplayer,
+    fontFaces,
+    lines,
+    searchResults,
+    suggestResults,
+    options,
+    ...others
+  });
