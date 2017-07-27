@@ -15,7 +15,7 @@ import chaptersQuery from '../../graphql/queries/chapters.js';
 
 const styles = require('./style.scss');
 
-const Home = (props) => {
+const Home = props => {
   debug('component:Index', 'Render');
 
   const lastVisit = cookie.load('lastVisit') || null;

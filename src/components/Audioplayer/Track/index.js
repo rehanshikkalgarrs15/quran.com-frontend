@@ -10,13 +10,11 @@ export default class Track extends Component {
     onTrackChange: PropTypes.func.isRequired
   };
 
-  handleClick = (event) => {
+  handleClick = event => {
     const { onTrackChange } = this.props;
 
-    const fraction = (
-      event.nativeEvent.offsetX /
-      this.container.getBoundingClientRect().width
-    );
+    const fraction =
+      event.nativeEvent.offsetX / this.container.getBoundingClientRect().width;
 
     return onTrackChange(fraction);
   };
@@ -26,7 +24,9 @@ export default class Track extends Component {
 
     return (
       <div
-        ref={(container) => { this.container = container; }}
+        ref={container => {
+          this.container = container;
+        }}
         className={styles.container}
         onClick={this.handleClick}
       >
